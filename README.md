@@ -22,7 +22,8 @@ git clone https://github.com/Ensembl/ensembl-vep.git
 cd ensembl-vep
 git pull
 git checkout release/104
-perl INSTALL.pl
+#perl INSTALL.pl
+perl INSTALL.pl -d $soft -c $soft/.vep -n -r $soft/.vep/Plugins -a l
 ```
 
 #### VEP cache and faste files
