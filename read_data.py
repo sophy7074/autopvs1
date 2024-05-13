@@ -42,6 +42,8 @@ genome_hg38 = Fasta(config['HG38']['genome'])
 transcripts_hg19 = read_transcripts(open(config['HG19']['transcript']))
 transcripts_hg38 = read_transcripts(open(config['HG38']['transcript']))
 
+transcripts=transcripts_hg19
+
 domain_hg19 = create_bed_dict(config['HG19']['domain'])
 domain_hg38 = create_bed_dict(config['HG38']['domain'])
 
