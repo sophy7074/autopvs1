@@ -13,7 +13,7 @@ from collections import namedtuple
 from .pvs1 import PVS1
 from .cnv import PVS1CNV, CNVRecord
 from .read_data import trans_gene, gene_trans, gene_alias, vep_cache
-from .read_data import transcripts_hg19, transcripts_hg38, genome_hg19, genome_hg38
+from .read_data import transcripts_hg19, transcripts_hg38, genome_hg19, genome_hg38, fasta_hg19
 from .utils import vep2vcf, get_transcript, vep_consequence_trans, VCFRecord
 
 
@@ -98,6 +98,7 @@ class AutoPVS1:
             --dir_cache ''' + vep_cache + ''' \
             --species "homo_sapiens" \
             --assembly ''' + self.vep_assembly + ''' \
+            --fasta ''' + fasta_hg19 + ''' \
             --fork 4 \
             --canonical \
             --flag_pick \
@@ -111,6 +112,7 @@ class AutoPVS1:
             --output_file ''' + self.vep_output + ''' --no_stats \
             --tab --fields "Uploaded_variation,SYMBOL,Feature,CANONICAL,PICK,Consequence,HGVSc,HGVSp,HGVSg,EXON,INTRON"
         '''
+        print(vepcommand)
         os.system(vepcommand)
 
     def vep_filter(self):
@@ -247,6 +249,7 @@ class AutoPVS1CNV:
                 --dir_cache ''' + vep_cache + ''' \
                 --species "homo_sapiens" \
                 --assembly ''' + self.vep_assembly + ''' \
+                --fasta ''' + fasta_hg19 + ''' \
                 --fork 1 \
                 --hgvs --hgvsg --canonical --symbol \
                 --distance 0 \

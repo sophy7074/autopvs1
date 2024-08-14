@@ -35,7 +35,7 @@ with open(config['DEFAULT']['gene_trans']) as f:
         gene_trans[gene] = trans
         trans_gene[trans] = gene
 
-
+fasta_hg19 = config['HG19']['genome']
 genome_hg19 = Fasta(config['HG19']['genome'])
 genome_hg38 = Fasta(config['HG38']['genome'])
 
